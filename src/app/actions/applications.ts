@@ -272,7 +272,7 @@ export async function getStats() {
 
   // Applications over time (by month)
   const byMonth: Record<string, number> = {};
-  applications.forEach((app) => {
+  applications.forEach((app: typeof applications[number]) => {
     const month = new Date(app.appliedDate).toLocaleString("en-GB", { month: "short", year: "2-digit" });
     byMonth[month] = (byMonth[month] || 0) + 1;
   });
