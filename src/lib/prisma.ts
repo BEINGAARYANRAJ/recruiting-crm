@@ -7,8 +7,10 @@ const adapter = new PrismaPg({
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { PrismaClient } = require("@prisma/client");
 
+type PrismaClientType = ReturnType<typeof PrismaClient>;
+
 const globalForPrisma = globalThis as unknown as {
-  prisma: typeof import("@prisma/client").PrismaClient.prototype | undefined;
+  prisma: PrismaClientType | undefined;
 };
 
 export const prisma =
