@@ -63,7 +63,7 @@ export default function KanbanBoard({ initialApplications }: { initialApplicatio
   }
 
   return (
-    <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd} accessibility={{ announcements: {} }}>
+    <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd} accessibility={{ announcements:undefined }}>
       <div style={{
         display: "flex",
         gap: "12px",
