@@ -260,7 +260,7 @@ export async function getStats() {
     return acc;
   }, {});
 
-  const responded = applications.filter((a) =>
+  const responded = applications.filter((a: typeof applications[number]) =>
     ["OA","PHONE_SCREEN","TECHNICAL","HR","ONSITE","OFFER","REJECTED"].includes(a.status)
   ).length;
 
