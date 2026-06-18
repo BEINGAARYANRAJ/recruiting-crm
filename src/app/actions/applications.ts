@@ -255,7 +255,7 @@ export async function getStats() {
   });
 
   const total = applications.length;
-  const byStatus = applications.reduce((acc: Record<string, number>, app) => {
+  const byStatus = applications.reduce((acc: Record<string, number>, app: typeof applications[number]) => {
     acc[app.status] = (acc[app.status] || 0) + 1;
     return acc;
   }, {});
