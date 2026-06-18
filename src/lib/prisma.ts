@@ -1,12 +1,14 @@
-import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 
-const adapter = new PrismaPg({ 
-  connectionString: 'postgresql://postgres:12345678@localhost:5433/recruiting_crm' 
+const adapter = new PrismaPg({
+  connectionString: process.env.DATABASE_URL!,
 });
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { PrismaClient } = require("@prisma/client");
+
 const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
+  prisma: typeof import("@prisma/client").PrismaClient.prototype | undefined;
 };
 
 export const prisma =
