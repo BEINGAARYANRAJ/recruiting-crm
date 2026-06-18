@@ -38,7 +38,7 @@ export default async function CalendarPage() {
         </div>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-          {events.map((event) => {
+          {events.map((event: typeof events[number]) => {
             const color = EVENT_COLORS[event.type] || "#6b7280";
             const daysUntil = getDaysUntil(event.scheduledAt.toString());
             const isUrgent = ["Today", "Tomorrow"].includes(daysUntil);
