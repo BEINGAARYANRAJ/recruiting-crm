@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -127,6 +127,10 @@ export default function LoginPage() {
             {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
+        <p style={{ color: "#555", fontSize: "13px", textAlign: "center", marginTop: "20px" }}>
+                Don't have an account?{" "}
+        <Link href="/register" style={{ color: "#fff", textDecoration: "none" }}>Create one </Link>
+      </p>
       </div>
     </div>
   );
