@@ -5,7 +5,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import bcrypt from "bcryptjs";
 
 const adapter = new PrismaPg({
-  connectionString: "postgresql://postgres:RajAaryan1540%23@db.qjtnkluolvlqkltlilqf.supabase.co:5432/postgres?sslmode=require",
+  connectionString: "postgresql://postgres:RajAaryan1540%23@db.qjtnkluolvlqkltlilqf.supabase.co:5432/postgres?sslmode=verify-full",
 });
 const prisma = new PrismaClient({ adapter });
 
