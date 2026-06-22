@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 
-const adapter = new PrismaPg({ connectionString: 'postgresql://postgres:12345678@localhost:5433/recruiting_crm' });
+const adapter = new PrismaPg({ connectionString: 'postgresql://postgres:RajAaryan1540%23@db.qjtnkluolvlqkltlilqf.supabase.co:5432/postgres' });
 const prisma = new PrismaClient({ adapter });
 
 const AppStatus = {
@@ -25,7 +25,7 @@ async function main() {
     create: {
       email: "test@example.com",
       name: "Aaryan",
-      password: "hashed_later", // will wire bcrypt in Phase 2
+      password: "$2b$10$08XeJtOEy19jiVj3dJQh.uZxaP0Ob6Iu4RGgTtRE2WvEpETP8V6hm",
     },
   });
 
