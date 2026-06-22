@@ -1,8 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 
-const connectionString = "postgresql://postgres.qjtnkluolvlqkltlilqf:RajAaryan1540%23@aws-1-ap-south-1.pooler.supabase.com:6543/postgres?sslmode=verify-full";
-
+const connectionString = "postgresql://postgres.qjtnkluolvlqkltlilqf:RajAaryan1540%23@aws-1-ap-south-1.pooler.supabase.com:6543/postgres?sslmode=no-verify";
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
