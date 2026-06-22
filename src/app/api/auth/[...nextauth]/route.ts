@@ -5,7 +5,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import bcrypt from "bcryptjs";
 
 const adapter = new PrismaPg({
-  connectionString:"postgresql://postgres:RajAaryan1540%23@db.qjtnkluolvlqkltlilqf.supabase.co:5432/postgres",
+  connectionString: "postgresql://postgres:RajAaryan1540%23@db.qjtnkluolvlqkltlilqf.supabase.co:5432/postgres?sslmode=require",
 });
 const prisma = new PrismaClient({ adapter });
 
@@ -20,24 +20,24 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-  try {
-    if (!credentials?.email || !credentials?.password) return null;
+        try {
+          if (!credentials?.email || !credentials?.password) return null;
 
-    const user = await prisma.user.findUnique({
-      where: { email: credentials.email },
-    });
+          const user = await prisma.user.findUnique({
+            where: { email: credentials.email },
+          });
 
-    if (!user || !user.password) return null;
+          if (!user || !user.password) return null;
 
-    const isValid = await bcrypt.compare(credentials.password, user.password);
-    if (!isValid) return null;
+          const isValid = await bcrypt.compare(credentials.password, user.password);
+          if (!isValid) return null;
 
-    return { id: user.id, email: user.email, name: user.name };
-  } catch (error) {
-    console.error("Auth error:", error);
-    return null;
-  }
-},
+          return { id: user.id, email: user.email, name: user.name };
+        } catch (error) {
+          console.error("Auth error:", error);
+          return null;
+        }
+      },
     }),
   ],
   callbacks: {
